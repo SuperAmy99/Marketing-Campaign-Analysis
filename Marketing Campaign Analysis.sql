@@ -45,15 +45,17 @@ and '2022-12-31' group by 1
 #The average number of transactions per customer per period
 
 select
-count (distinct order_id)/count(distinct
-customer_id) as frequency from user_level_sales where
-date between '2022-01-01' and '2022-12-31' and age_group = '35-39'
+    count (distinct order_id) / count(distinct customer_id) as frequency 
+from user_level_sales
+where date between '2022-01-01' and '2022-12-31'
+and age_group = '35-39'
 and region = 'NY'
 and gender = 'F'
-and brand = 'A' and sales > 0
+and brand = 'A'
+and sales > 0
 
 
-Average Days Since Last Purchase
+# Average Days Since Last Purchase
 
 with previous_date as
 (select
